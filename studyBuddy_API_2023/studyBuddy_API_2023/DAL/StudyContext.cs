@@ -20,8 +20,8 @@ namespace studyBuddy_API_2023.DAL
     }
 
     // Create the table based off the model
-    public DbSet<StudyQuestions> StudyQuestions { get; set; }
-    public DbSet<FavoriteQuestions> UserQuestions { get; set; }
+    public DbSet<StudyQuestion> StudyQuestions { get; set; }
+    public DbSet<FavoriteQuestion> FavoriteQuestions { get; set; }
 
     private static IConfigurationRoot _configuration;
 

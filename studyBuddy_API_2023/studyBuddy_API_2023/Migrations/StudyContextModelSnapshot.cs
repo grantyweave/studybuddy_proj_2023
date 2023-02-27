@@ -21,7 +21,7 @@ namespace studyBuddy_API_2023.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("studyBuddy_API_2023.Models.FavoriteQuestions", b =>
+            modelBuilder.Entity("studyBuddy_API_2023.Models.FavoriteQuestion", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -29,20 +29,18 @@ namespace studyBuddy_API_2023.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Answer")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Question")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserQuestions");
+                    b.ToTable("FavoriteQuestions");
                 });
 
-            modelBuilder.Entity("studyBuddy_API_2023.Models.StudyQuestions", b =>
+            modelBuilder.Entity("studyBuddy_API_2023.Models.StudyQuestion", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

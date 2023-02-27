@@ -13,9 +13,9 @@ namespace studyBuddy_API_2023.Controllers
     StudyQuestionsRepository repo = new StudyQuestionsRepository();
 
     [HttpPost("add")]
-    public StudyQuestions AddStudyQuestion(StudyQuestions study)
+    public StudyQuestion AddStudyQuestion(StudyQuestion study)
     {
-      StudyQuestions newStudyQuestion = new StudyQuestions
+      StudyQuestion newStudyQuestion = new StudyQuestion
       {
         Id = study.Id,
         Question = study.Question,
@@ -26,18 +26,18 @@ namespace studyBuddy_API_2023.Controllers
     }
 
     [HttpGet()]
-    public List<StudyQuestions> GetAll()
+    public List<StudyQuestion> GetAll()
     {
       return repo.GetAllStudyQuestions();
     }
 
     [HttpGet("{id}")]
-    public StudyQuestions GetById(int id)
+    public StudyQuestion GetById(int id)
     {
       return repo.FindById(id);
     }
 
-    [HttpPost("delete/{id}")]
+    [HttpDelete("delete/{id}")]
     public HttpResponseMessage DeleteById(int id)
     {
       try
@@ -56,10 +56,10 @@ namespace studyBuddy_API_2023.Controllers
         return new HttpResponseMessage(HttpStatusCode.ServiceUnavailable);
       }
     }
-    [HttpPost("update")]
+    [HttpPut("update")]
     public HttpResponseMessage UpdateStudyQuestions(int id, string question, string answer)
     {
-      StudyQuestions studyQuestionsToUpdate = new StudyQuestions
+      StudyQuestion studyQuestionsToUpdate = new StudyQuestion
       {
         Id = id,
         Question = question,
