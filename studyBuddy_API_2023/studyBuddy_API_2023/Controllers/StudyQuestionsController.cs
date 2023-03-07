@@ -8,7 +8,7 @@ namespace studyBuddy_API_2023.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class StudyController : ControllerBase
+  public class StudyQuestionsController : ControllerBase
   {
     StudyQuestionsRepository repo = new StudyQuestionsRepository();
 
@@ -17,10 +17,8 @@ namespace studyBuddy_API_2023.Controllers
     {
       StudyQuestion newStudyQuestion = new StudyQuestion
       {
-        Id = study.Id,
         Question = study.Question,
         Answer = study.Answer
-
   };
       return repo.AddStudyQuestion(newStudyQuestion);
     }

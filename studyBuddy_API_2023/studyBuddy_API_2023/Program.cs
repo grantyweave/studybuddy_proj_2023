@@ -45,7 +45,6 @@ using (var context = new StudyContext())
       new StudyQuestion { Question = "Observe most nearly means", Answer = "Watch" }
       });
   }
-
   context.SaveChanges();
 }
 
