@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { IStudyQuestion } from './interfaces/study-question';
-import { IFavoriteQuestion } from './interfaces/favorite-question';
+import { IStudyBuddy } from './interfaces/IStudyBuddy';
 import { RepositoryService } from './repository.service';
 
 @Component({
@@ -12,59 +11,13 @@ import { RepositoryService } from './repository.service';
 
 export class AppComponent {
   title = 'studybuddy_proj_2023';
+  headerText: string = "Welcome to the Bootcamp Study Buddy!"
 
   constructor(private repositoryService: RepositoryService) { }
-  studyQuestions: any;
-  id: number = -1;
-  question: string = "";
-  answer: string = "";
-  questionId: number = -1;
-  userId: number = -1;
-
-  // boardGames: any;
-  // gameTitle: string = "";
-  // description: string = "";
-  // yearPublished: number = -1;
-  // playerCount: number = -1
+  studyCollection: IStudyBuddy[] = [];
+  userID = Math.floor(Math.random() * (1000 - -1 + 1) + -1);
 
   ngOnInit(): void {
-    this.gettStudyQuestions();
+    this.repositoryService.getStudyQAndA().subscribe(response => this.studyCollection = response);
   }
-
-  validateData(form: NgForm) {
-    alert("bad data");
-    //if all is good
-
-    this.addStudyQuestion(form)
   }
-
-  addStudyQuestion(form: NgForm) {
-    let newStudyQuestion: IStudyQuestion = {
-      id: -1,
-      question: form.form.value.question,
-      answer: form.form.value.answer,
-    };
-
-    addFavoriteQuestion(form: NgForm) {
-      let newFavoriteQuestion: IFavoriteQuestion = {
-        id: -1,
-        questionId: -1,
-        userId: -1,
-      };
-
-    this.repositoryService.addStudyQuestion(newStudyQuestion).subscribe(
-      () => {
-        this.gettStudyQuestions();
-      }
-    );
-  };
-
-  gettStudyQuestions() {
-    this.repositoryService.getStudyQuestions().subscribe(
-      (response) => {
-        this.studyQuestions = response;
-        // add alert
-        // do calculation
-      });
-  }
-}

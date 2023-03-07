@@ -1,28 +1,7 @@
-<div>
-  <li *ngFor="let study of studyQuestions">        
-         <span  style="font-size: 20px;text-align: center;">{{study.question}}  </span>      
-  </li>
-</div>
+<h1>{{headerText}}</h1>
+<h2>Here we have all of our available study questions listed below.<br>If you would like to see an answer, simply click the [Expand] button below the question.<br>If you would like to add to your favorites list, click the checkbox next to the question.</h2>
+<br><br><br>
 
-<div>
-  <form #newGameForm="ngForm" (ngSubmit)="addStudyQuestion(newStudyQuestionForm)">
-    <p><label for="question">Question:</label> <input name="question" id="question" ngModel /> </p>
-    <p> <label for="answer">Answer:</label> <input name="answer" id="answer" ngModel /></p>
-    <p><button>Add New Study Question</button></p>
-  </form>
-</div>
-
-
-<div>
-  <li *ngFor="let favorite of favoriteQuestions">        
-         <span  style="font-size: 20px;text-align: center;">{{favorite.question}}  </span>      
-  </li>
-</div>
-
-<div>
-  <form #newGameForm="ngForm" (ngSubmit)="addFavoriteQuestions(newStudyQuestionForm)">
-    <p><label for="question">Question:</label> <input name="question" id="question" ngModel /> </p>
-    <p> <label for="answer">Answer:</label> <input name="answer" id="answer" ngModel /></p>
-    <p><button>Add New Study Question</button></p>
-  </form>
+<div *ngFor="let QAPair of studyCollection; index as i">
+  {{i+1}}. <app-questions [qaPair]="QAPair"></app-questions>
 </div>
