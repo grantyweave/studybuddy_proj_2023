@@ -1,6 +1,6 @@
 <h1>{{headerText}}</h1>
 <h2>Here we have all of our available study questions listed below.<br>If you would like to see an answer, simply click the [Expand] button below the question.<br>If you would like to add to your favorites list, click the checkbox next to the question.</h2>
-<br><br><br>
+<br>
 
 <div *ngFor="let QAPair of studyCollection; index as i">
   <app-questions [qaPair]="QAPair"></app-questions>
