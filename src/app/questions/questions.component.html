@@ -1,6 +1,6 @@
 <div>
-    <input (click)="toggleFavorite()" type="checkbox" id="favorite"><label for="favorite">Favorite this question</label>
-    <p>{{qaPair.question}}</p>
-    <button (click)="toggleAnswer($event.target); display = !display;">Show</button>
+    <!-- <input (click)="toggleFavorite()" type="checkbox" id="favorite"><label for="favorite">Favorite this question</label> -->
+    <p>{{qaPair.id}}. {{qaPair.question}}</p>
     <p style="background-color:lightgreen; padding: 16px 0px; margin: 0px;" [hidden]="display">{{qaPair.answer}}</p>
+    <button (click)="toggleAnswer($event.target); display = !display;">Expand</button>
 </div>

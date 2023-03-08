@@ -1,1 +1,5 @@
-<p>user-input works!</p>
+<form #newQAForm="ngForm" (ngSubmit)="addQuestionAnswer(newQAForm)">
+    <p><label for="question">Question: </label> <input name="question" id="question" ngModel /> </p>
+    <p><label for="question">Answer: </label> <input name="answer" id="answer" ngModel /> </p>
+    <p><button>Add new Study Question</button></p>
+</form>

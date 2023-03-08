@@ -17,7 +17,7 @@ export class QuestionsComponent {
     element.textContent = element.textContent === 'Hide' ? 'Expand' : 'Hide';
   }
 
-  toggleFavorite(){
-    this.qaPair.favorite = !this.qaPair.favorite;
-  }
+  // toggleFavorite(){
+  //   this.qaPair.favorite = !this.qaPair.favorite;
+  // }
 }

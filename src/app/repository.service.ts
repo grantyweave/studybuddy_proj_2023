@@ -12,10 +12,11 @@ export class RepositoryService {
   apiUri: string = 'https://localhost:7257/api/StudyQuestions'
 
   getStudyQAndA() {
-    return this.http.get<IStudyBuddy[]>(this.apiUri)
+    return this.http.get<IStudyBuddy[]>(this.apiUri);
+  }
+  
+  addQuestionAnswer(study:IStudyBuddy) {
+    return this.http.post(`${this.apiUri}/add`,study);
   }
 
-  addQuestionAnswer(study:IStudyBuddy) {
-    return this.http.post(`${this.apiUri}/add`,study)
-  }
 }

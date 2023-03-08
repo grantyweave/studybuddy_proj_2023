@@ -3,5 +3,8 @@
 <br><br><br>
 
 <div *ngFor="let QAPair of studyCollection; index as i">
-  {{i+1}}. <app-questions [qaPair]="QAPair"></app-questions>
+  <app-questions [qaPair]="QAPair"></app-questions>
 </div>
+
+<h2>{{addText}}</h2>
+<app-user-input (reloadCollection)="getQuestionsAndAnswers()"></app-user-input>
