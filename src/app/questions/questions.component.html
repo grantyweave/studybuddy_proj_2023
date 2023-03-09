@@ -1,0 +1,7 @@
+<div id="container-border">
+    <!-- <input (click)="toggleFavorite()" type="checkbox" id="favorite"><label for="favorite">Favorite this question</label> -->
+    <p>&nbsp;&nbsp;{{qaPair.id}}. {{qaPair.question}}</p>
+    <p style="background-color:#9df9ef; padding: 16px 0px; margin: 0px;" [hidden]="display">&nbsp;&nbsp;{{qaPair.answer}}</p>
+    <br>&nbsp;&nbsp;<button (click)="toggleAnswer($event.target); display = !display;">Expand</button>
+    <p></p>
+</div>
